@@ -1,19 +1,17 @@
 import Link from "next/link";
-import Image from "next/image";
+import { Logo } from "@/components/logo";
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-white/10">
+    <footer className="bg-gray-500">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between sm:flex-row gap-8 py-8">
-          <Link href="/">
-            <Image src="/logo.svg" alt="Logo" width={100} height={100} />
-          </Link>
+          <Logo />
 
-          <nav className="flex flex-col md:flex-row items-center gap-4 text-sm text-muted-foreground">
-            <Link href="/use-terms" className="hover:text-primary transition-colors">Use Terms</Link>
-            <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link href="/feedback" className="hover:text-primary transition-colors">Feedback</Link>
+          <nav className="flex flex-col md:flex-row items-center gap-4 text-sm text-blue-100">
+            <Link href="/use-terms" className="hover:text-blue-200">Use Terms</Link>
+            <Link href="/privacy-policy" className="hover:text-blue-200">Privacy Policy</Link>
+            <Link href="/feedback" className="hover:text-blue-200">Feedback</Link>
           </nav>
         </div>
       </div>

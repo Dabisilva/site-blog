@@ -15,7 +15,7 @@ export const ActiveLink = ({ href, children, ...props }: ActiveLinkProps) => {
   };
 
   const linkClass = (path: string) =>
-    isActive(path) ? "text-blue-500" : "text-muted-foreground";
+    isActive(path) ? "text-blue-500" : "text-gray-100";
 
-  return <Link href={href.toString()} {...props} className={cn('text-sm font-medium trasition-colors hover:text-primary', linkClass(href.toString()))}>{children}</Link>;
+  return <Link href={href.toString()} {...props} className={cn('text-action-sm trasition-colors hover:text-primary', linkClass(href.toString()))}>{children}</Link>;
 };
