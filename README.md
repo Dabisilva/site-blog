@@ -1,40 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# site-blog
+
+Marketing site for an affiliate store product. Built with Next.js 16, React 19, Tailwind CSS v4, and TypeScript.
+
+## Features
+
+- Landing page with hero and feature sections
+- Light/dark theme (system preference or manual toggle)
+- Responsive layout with header and footer
+- Blog route
+
+## Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org) 16 (Pages Router)
+- **UI:** React 19, [Tailwind CSS](https://tailwindcss.com) v4, [shadcn](https://ui.shadcn.com)-style components (Radix UI, CVA, `tailwind-merge`, `clsx`)
+- **Icons:** [Lucide React](https://lucide-react.dev)
+- **Language:** TypeScript 5.9
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- `src/pages/` — Next.js pages (e.g. `index.tsx`, `blog.tsx`)
+- `src/components/` — React components (layout, header, footer, hero-section, feature-section, ui)
+- `src/styles/` — Global CSS and Tailwind
+- `src/lib/` — Utilities (e.g. `cn`)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+Path alias `@/*` points to `src/*`.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+| Command    | Description              |
+| ---------- | ------------------------ |
+| `npm run dev`   | Start dev server (Turbopack) |
+| `npm run build` | Build for production     |
+| `npm run start` | Start production server  |
+| `npm run lint`  | Run ESLint               |
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+You can deploy with [Vercel](https://vercel.com) or any platform that supports Next.js. See [Next.js deployment docs](https://nextjs.org/docs/pages/building-your-application/deploying).
