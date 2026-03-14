@@ -2,3 +2,7 @@
 @config "../../tailwind.config.ts";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+
+body {
+  @apply bg-gray-800 text-white;
+}
