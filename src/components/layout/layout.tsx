@@ -1,21 +1,17 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { Inter } from "next/font/google";
+import { inter, ptSansCaption } from "@/utils/fonts";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className={`relative flex min-h-screen flex-col ${inter.className} bg-gray-700`}>
+    <div className={`${ptSansCaption.className} ${inter.className} relative flex min-h-screen flex-col bg-gray-700 font-inter`}>
       <Header />
-      <main className="pt-16 flex-1 flex flex-col mb-12">
+      <main className="pt-16 flex-1 flex flex-col mt-10 mb-12">
         {children}
       </main>
       <Footer />
