@@ -1,5 +1,5 @@
+import { CustomerCard } from "./customer-card";
 
-import { CustomerCard } from '../customer-card';
 
 
 const customerStories = [

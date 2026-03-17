@@ -1,6 +1,7 @@
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
+
 import { inter, ptSansCaption } from "@/utils/fonts";
+import { Footer } from "./footer";
+import { Header } from "./header";
 
 type LayoutProps = {
   children: React.ReactNode;

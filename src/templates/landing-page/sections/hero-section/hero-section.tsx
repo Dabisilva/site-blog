@@ -15,14 +15,14 @@ export const HeroSection = () => {
             <div>
               <div className="flex items-center gap-2">
                 <Clock className="text-cyan-100 h-4 w-4" />
-                <span className="text-gray-200">
+                <span className="text-body-md text-gray-200">
                   Create your site in less than 5 minutes
                 </span>
               </div>
 
               <div className="flex items-center gap-2">
                 <Store className="text-cyan-100 h-4 w-4" />
-                <span className="text-gray-200">
+                <span className="text-body-md text-gray-200">
                   Track and optimize your online business
                 </span>
               </div>
