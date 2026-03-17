@@ -1,3 +1,4 @@
+import { SupportSectionCard } from '@/components/support-section-card/support-section-card';
 import { HeartHandshake, PaintbrushVertical, Store } from 'lucide-react';
 import { PT_Sans_Caption } from 'next/font/google';
 
@@ -5,6 +6,30 @@ const ptSansCaption = PT_Sans_Caption({
   subsets: ['latin'],
   weight: '700',
 });
+
+const supportSectionCards = [
+  {
+    Icon: PaintbrushVertical,
+    title: 'Customize your site',
+    text: 'Add your logo, favicon, and colors to your catalog and make it all yours.',
+    bgColor: 'bg-blue-400',
+    color: 'bg-blue-300',
+  },
+  {
+    Icon: Store,
+    title: 'Sell from any store',
+    text: 'No matter the store, Site.Set lets you add any affiliate link.',
+    bgColor: 'bg-cyan-300',
+    color: 'bg-cyan-200',
+  },
+  {
+    Icon: HeartHandshake,
+    title: 'Get friendly support',
+    text: 'Our team is always ready to help you with whatever you need.',
+    bgColor: 'bg-blue-400',
+    color: 'bg-blue-300',
+  },
+];
 
 export const SupportSection = () => {
   return (
@@ -18,41 +43,15 @@ export const SupportSection = () => {
 
         <div className="grid gap-6 md:grid-cols-3">
 
-          <div className="flex flex-col text-left gap-2 rounded-lg p-6 md:p-12 bg-blue-400">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-300 mb-4">
-              <PaintbrushVertical className="h-6 w-6 text-white" />
-            </div>
-            <strong className="text-heading-sm text-gray-100">
-              Customize your site
-            </strong>
-            <p className="text-body-sm text-gray-200">
-              Add your logo, favicon, and colors to your catalog and make it all
-              yours.
-            </p>
-          </div>
-          <div className="flex flex-col text-left gap-2 rounded-lg p-6 md:p-12 bg-cyan-300">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-cyan-200 mb-4">
-              <Store className="h-6 w-6 text-white" />
-            </div>
-            <strong className="text-heading-sm text-gray-100">
-              Sell from any store
-            </strong>
-            <p className="text-body-sm text-gray-200">
-              No matter the store, Site.Set lets you add any affiliate link.
-            </p>
-          </div>
-
-          <div className="flex flex-col text-left gap-2 rounded-lg p-6 md:p-12 bg-blue-400">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-300 mb-4">
-              <HeartHandshake className="h-6 w-6 text-white" />
-            </div>
-            <strong className="text-heading-sm text-gray-100">
-              Get friendly support
-            </strong>
-            <p className="text-body-sm text-gray-200">
-              Our team is always ready to help you with whatever you need.
-            </p>
-          </div>
+          {supportSectionCards.map((card) => (
+            <SupportSectionCard key={card.title} className={`${card.bgColor}`}>
+              <SupportSectionCard.Icon className={`${card.color}`}>
+                <card.Icon className="h-6 w-6 text-white" />
+              </SupportSectionCard.Icon>
+              <SupportSectionCard.Title>{card.title}</SupportSectionCard.Title>
+              <SupportSectionCard.Text>{card.text}</SupportSectionCard.Text>
+            </SupportSectionCard>
+          ))}
         </div>
       </div>
     </section>
