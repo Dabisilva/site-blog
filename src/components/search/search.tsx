@@ -1,21 +1,17 @@
 import { cn } from '@/lib/utils';
 import { SearchIcon } from 'lucide-react';
 import { useRouter } from 'next/router';
-import { useCallback } from 'react';
 
 export const Search = () => {
   const router = useRouter();
   const query = router.query.q as string;
 
-  const handleSearch = useCallback(
-    (event: React.FormEvent) => {
-      event.preventDefault();
-      if (query.trim()) {
-        router.push(`/blog?q=${encodeURIComponent(query)}`);
-      }
-    },
-    [query, router]
-  );
+  const handleSearch = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (query.trim()) {
+      router.push(`/blog?q=${encodeURIComponent(query)}`);
+    }
+  }
 
   const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = event.target.value;
