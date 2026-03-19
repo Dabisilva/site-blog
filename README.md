@@ -43,12 +43,12 @@ Path alias `@/*` points to `src/*`.
 
 ## Scripts
 
-| Command    | Description              |
-| ---------- | ------------------------ |
+| Command         | Description                  |
+| --------------- | ---------------------------- |
 | `npm run dev`   | Start dev server (Turbopack) |
-| `npm run build` | Build for production     |
-| `npm run start` | Start production server  |
-| `npm run lint`  | Run ESLint               |
+| `npm run build` | Build for production         |
+| `npm run start` | Start production server      |
+| `npm run lint`  | Run ESLint                   |
 
 ## Deploy
 

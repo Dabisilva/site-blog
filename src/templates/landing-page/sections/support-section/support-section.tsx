@@ -1,4 +1,3 @@
-
 import { HeartHandshake, PaintbrushVertical, Store } from 'lucide-react';
 import { SupportSectionCard } from './support-section-card/support-section-card';
 
@@ -28,18 +27,15 @@ const supportSectionCards = [
 
 export const SupportSection = () => {
   return (
-    <section className="relative pb-8 md:py-10 bg-gray-700">
-      <div className="absolute inset-0 hidden md:block bg-[url('/background-features.svg')] bg-cover bg-center bg-no-repeat opacity-90" />
+    <section className="relative bg-gray-700 pb-8 md:py-10">
+      <div className="absolute inset-0 hidden bg-[url('/background-features.svg')] bg-cover bg-center bg-no-repeat opacity-90 md:block" />
 
-      <div className="container flex flex-col items-center gap-12 relative">
-        <h2
-          className="font-sans text-balance text-center text-heading-xl text-gray-100"
-        >
+      <div className="relative container flex flex-col items-center gap-12">
+        <h2 className="text-heading-xl text-center font-sans text-balance text-gray-100">
           Your affiliate store, simple, the way it should be
         </h2>
 
         <div className="grid gap-6 md:grid-cols-3">
-
           {supportSectionCards.map((card) => (
             <SupportSectionCard key={card.title} className={`${card.bgColor}`}>
               <SupportSectionCard.Icon className={`${card.color}`}>

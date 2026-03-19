@@ -1,30 +1,28 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-const THEME_KEY = "theme";
+const THEME_KEY = 'theme';
 
-type Theme = "light" | "dark" | "system";
+type Theme = 'light' | 'dark' | 'system';
 
-function getSystemTheme(): "light" | "dark" {
-  if (typeof window === "undefined") return "light";
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+function getSystemTheme(): 'light' | 'dark' {
+  if (typeof window === 'undefined') return 'light';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-function getResolvedTheme(stored: Theme | null): "light" | "dark" {
-  if (stored === "dark") return "dark";
-  if (stored === "light") return "light";
+function getResolvedTheme(stored: Theme | null): 'light' | 'dark' {
+  if (stored === 'dark') return 'dark';
+  if (stored === 'light') return 'light';
   return getSystemTheme();
 }
 
-function applyTheme(resolved: "light" | "dark") {
+function applyTheme(resolved: 'light' | 'dark') {
   const root = document.documentElement;
-  if (resolved === "dark") {
-    root.classList.add("dark");
+  if (resolved === 'dark') {
+    root.classList.add('dark');
   } else {
-    root.classList.remove("dark");
+    root.classList.remove('dark');
   }
 }
 
@@ -34,15 +32,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const resolved = getResolvedTheme(stored);
     applyTheme(resolved);
 
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = () => {
-      const next = getResolvedTheme(
-        localStorage.getItem(THEME_KEY) as Theme | null
-      );
+      const next = getResolvedTheme(localStorage.getItem(THEME_KEY) as Theme | null);
       applyTheme(next);
     };
-    media.addEventListener("change", handleChange);
-    return () => media.removeEventListener("change", handleChange);
+    media.addEventListener('change', handleChange);
+    return () => media.removeEventListener('change', handleChange);
   }, []);
 
   return <>{children}</>;
@@ -55,6 +51,6 @@ export function setTheme(theme: Theme) {
 }
 
 export function getTheme(): Theme {
-  if (typeof window === "undefined") return "system";
-  return (localStorage.getItem(THEME_KEY) as Theme) ?? "system";
+  if (typeof window === 'undefined') return 'system';
+  return (localStorage.getItem(THEME_KEY) as Theme) ?? 'system';
 }

@@ -1,6 +1,4 @@
-import { CustomerCard } from "./customer-card";
-
-
+import { CustomerCard } from './customer-card';
 
 const customerStories = [
   {
@@ -27,11 +25,7 @@ export const CustomerStorySection = () => {
   return (
     <section className="container py-8 md:py-10">
       <div className="flex flex-col items-center gap-12">
-        <h2
-          className="font-sans text-heading-xl text-gray-100"
-        >
-          Everyone who uses it, approves!
-        </h2>
+        <h2 className="text-heading-xl font-sans text-gray-100">Everyone who uses it, approves!</h2>
 
         <div className="grid gap-8 md:grid-cols-2">
           {customerStories.map((customerStory) => (

@@ -1,13 +1,13 @@
-import type { NextConfig } from "next";
-import { withContentlayer } from "next-contentlayer";
-import path from "path";
+import type { NextConfig } from 'next';
+import { withContentlayer } from 'next-contentlayer';
+import path from 'path';
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
   reactStrictMode: true,
   turbopack: {
     resolveAlias: {
-      "@": path.join(process.cwd(), "src"),
+      '@': path.join(process.cwd(), 'src'),
     },
   },
 };
