@@ -1,5 +1,6 @@
 import { Search } from '@/components/search';
 import { allPosts } from 'contentlayer/generated';
+import { Inbox } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { PostCard } from './components/post-card';
 import { PostGridCards } from './components/post-grid-cards';
@@ -10,6 +11,18 @@ export default function BlogList() {
   const pageTitle = query
     ? `Results for: "${query}"`
     : 'Tips and strategies to boost your business';
+
+  const posts = query
+    ? allPosts.filter((post) => {
+        return (
+          post.title.toLowerCase().includes(query.toLowerCase()) ||
+          post.description.toLowerCase().includes(query.toLowerCase()) ||
+          post.author.name.toLowerCase().includes(query.toLowerCase())
+        );
+      })
+    : allPosts;
+
+  const hasPosts = posts.length > 0;
 
   return (
     <div className="flex h-full grow flex-col py-24">
@@ -28,11 +41,21 @@ export default function BlogList() {
         </div>
       </header>
 
-      <PostGridCards>
-        {allPosts.map((post) => (
-          <PostCard key={post.slug} post={post} />
-        ))}
-      </PostGridCards>
+      {hasPosts && (
+        <PostGridCards>
+          {posts.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </PostGridCards>
+      )}
+      {!hasPosts && (
+        <div className="container">
+          <div className="flex flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed border-gray-300 p-8 md:p-12">
+            <Inbox className="h-12 w-12 text-cyan-100" />
+            <p className="text-body-sm text-center text-gray-100">No posts found</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

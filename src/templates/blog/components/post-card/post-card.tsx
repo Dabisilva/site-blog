@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { Avatar } from '@/components/avatar';
 import { dataFormat } from '@/utils/dataFormat';
 import { Post } from 'contentlayer/generated';
 
@@ -26,7 +27,7 @@ export const PostCard = ({ post }: PostCardProps) => {
             alt=""
             width={288}
             height={144}
-            className="h-40 w-full rounded-t-[8px] object-cover object-center"
+            className="h-40 w-full rounded-[8px] object-cover object-center"
           />
         </div>
 
@@ -39,10 +40,15 @@ export const PostCard = ({ post }: PostCardProps) => {
 
         {/* Post footer */}
         <div className="flex items-center gap-3 border-t border-gray-400 py-4">
-          <div className="relative h-5 w-5 overflow-hidden rounded-full border border-blue-200 md:h-6 md:w-6">
-            <Image src={post.author.avatar} alt="" fill className="rounded-md object-cover" />
-          </div>
-          <span className="text-body-sm text-gray-300">{post.author.name}</span>
+          <Avatar.Container>
+            <Avatar.Image src={post.author.avatar} alt={post.author.name} />
+            <Avatar.Content>
+              <Avatar.Title>{post.author.name}</Avatar.Title>
+              <Avatar.Description>
+                Publicado em <time dateTime={post.date}>{dataFormat(post.date)}</time>
+              </Avatar.Description>
+            </Avatar.Content>
+          </Avatar.Container>
         </div>
       </div>
     </Link>

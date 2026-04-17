@@ -4,8 +4,8 @@ description: If you’re looking for a simple and effective way to sell your pro
 date: '2026-01-16'
 image: /assets/first-post.png
 author:
-  name: Aspen Dokidis
-  avatar: /customer-01.png
+  name: Andrew Collins
+  avatar: /customer-02.png
 ---
 
 If you’re looking for a simple and effective way to sell your products online, Site.Set is the perfect solution for you. Creating a successful online store has never been easier. With our intuitive platform, you can build a professional website for your store in minutes—no technical knowledge required.

@@ -4,7 +4,7 @@ description: Convert traffic into sales with an affiliate store that’s designe
 date: '2026-01-19'
 image: /assets/first-post.png
 author:
-  name: Aspen Dokidis
+  name: Mark Grayson
   avatar: /customer-01.png
 ---
 
@@ -23,4 +23,3 @@ Here’s what helps you convert:
 **A store that’s easy to maintain**: Update products without headaches.
 
 Ready to start converting? Create your affiliate store today with Site.Set.
-

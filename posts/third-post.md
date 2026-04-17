@@ -4,8 +4,8 @@ description: Create an online catalog that’s responsive, easy to manage, and r
 date: '2026-01-18'
 image: /assets/first-post.png
 author:
-  name: Aspen Dokidis
-  avatar: /customer-01.png
+  name: Jorge Jorge
+  avatar: /customer-02.png
 ---
 
 Building a catalog doesn’t have to be complicated. With Site.Set, you can put your affiliate products online quickly and focus on what matters most: growing your audience and earning results.
@@ -21,4 +21,3 @@ What you get:
 **Built-in marketing support**: Get the basics you need to help people find you.
 
 Ready to launch? Start building your affiliate catalog today with Site.Set.
-
