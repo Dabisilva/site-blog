@@ -3,7 +3,7 @@ import { Store } from 'lucide-react';
 
 export const CallToAction = () => {
   return (
-    <section className="relative bg-linear-to-b from-cyan-950/20 to-gray-700 py-24">
+    <section className="relative bg-linear-to-b from-cyan-950/20 to-gray-700 py-20">
       <div className="absolute inset-0 bg-[url('/background-footer.svg')] bg-cover bg-center bg-no-repeat opacity-90" />
 
       <div className="absolute top-0 left-1/2 w-fit -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300 p-4">

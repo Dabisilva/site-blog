@@ -1,3 +1,4 @@
+import { CallToAction } from '@/templates/landing-page/sections';
 import { inter, ptSansCaption } from '@/utils/fonts';
 import { Footer } from './footer';
 import { Header } from './header';
@@ -12,7 +13,8 @@ export const Layout = ({ children }: LayoutProps) => {
       className={`${ptSansCaption.className} ${inter.className} font-inter relative flex min-h-screen flex-col bg-gray-700`}
     >
       <Header />
-      <main className="mt-10 mb-12 flex flex-1 flex-col pt-16">{children}</main>
+      <main className="mb-12 flex flex-1 flex-col pt-16">{children}</main>
+      <CallToAction />
       <Footer />
     </div>
   );

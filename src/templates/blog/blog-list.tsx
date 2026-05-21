@@ -25,7 +25,7 @@ export default function BlogList() {
   const hasPosts = posts.length > 0;
 
   return (
-    <div className="flex h-full grow flex-col py-24">
+    <div className="flex h-full grow flex-col py-20">
       <header className="mb-6">
         <div className="container flex flex-col items-start justify-between space-y-6 md:flex-row md:items-end lg:items-end">
           <div className="mb-6 flex flex-col gap-4 md:mb-0 md:px-0">
