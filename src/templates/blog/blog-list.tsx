@@ -1,28 +1,32 @@
 import { Search } from '@/components/search';
-import { allPosts } from 'contentlayer/generated';
+import { Post } from 'contentlayer/generated';
 import { Inbox } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { PostCard } from './components/post-card';
 import { PostGridCards } from './components/post-grid-cards';
 
-export default function BlogList() {
+type BlogListProps = {
+  posts: Post[];
+};
+
+export default function BlogList({ posts }: BlogListProps) {
   const router = useRouter();
   const query = (router.query.q as string) ?? '';
   const pageTitle = query
     ? `Results for: "${query}"`
     : 'Tips and strategies to boost your business';
 
-  const posts = query
-    ? allPosts.filter((post) => {
+  const filteredPosts = query
+    ? posts.filter((post) => {
         return (
           post.title.toLowerCase().includes(query.toLowerCase()) ||
           post.description.toLowerCase().includes(query.toLowerCase()) ||
           post.author.name.toLowerCase().includes(query.toLowerCase())
         );
       })
-    : allPosts;
+    : posts;
 
-  const hasPosts = posts.length > 0;
+  const hasPosts = filteredPosts.length > 0;
 
   return (
     <div className="flex h-full grow flex-col py-20">
@@ -43,7 +47,7 @@ export default function BlogList() {
 
       {hasPosts && (
         <PostGridCards>
-          {posts.map((post) => (
+          {filteredPosts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
         </PostGridCards>

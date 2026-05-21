@@ -10,17 +10,15 @@ import {
 import { Button } from '@/components/ui/button';
 import { useShare } from '@/hooks';
 import { dataFormat } from '@/utils/dataFormat';
-import { allPosts } from 'contentlayer/generated';
+import { type Post as PostType } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
-export const Post = () => {
-  const router = useRouter();
-  const slug = router.query.slug as string;
+type PostPageProps = {
+  post: PostType;
+};
 
-  const post = allPosts.find((post) => post.slug.toLowerCase() === slug?.toLowerCase());
-
+export const Post = ({ post }: PostPageProps) => {
   const postLink = `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com'}/blog/${post?.slug}`;
   const { shareButtons } = useShare({ url: postLink, title: post?.title, text: post?.description });
 
