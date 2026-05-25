@@ -1,29 +1,29 @@
-import Link, { LinkProps } from 'next/link';
-import { useRouter } from 'next/router';
+'use client';
+
 import { cn } from '@/lib/utils';
+import Link, { LinkProps } from 'next/link';
+import { usePathname } from 'next/navigation';
 
 type ActiveLinkProps = {
   children: React.ReactNode;
 } & LinkProps;
 
 export const ActiveLink = ({ href, children, ...props }: ActiveLinkProps) => {
-  const router = useRouter();
+  const linkPath = (typeof href === 'string' ? href : href.pathname) ?? '';
+  const pathname = usePathname();
 
-  const isActive = (path: string) => {
-    if (path === '/') return router.pathname === '/';
-    return router.pathname === path || router.pathname.startsWith(path + '/');
+  const isActive = () => {
+    if (linkPath === '/') return pathname === '/';
+    return pathname === linkPath || pathname?.startsWith(`${linkPath}/`);
   };
 
-  const linkClass = (path: string) => (isActive(path) ? 'text-blue-500' : 'text-gray-100');
+  const linkClass = () => (isActive() ? 'text-blue-500' : 'text-gray-100');
 
   return (
     <Link
-      href={href.toString()}
+      href={linkPath}
       {...props}
-      className={cn(
-        'text-action-sm trasition-colors hover:text-primary',
-        linkClass(href.toString()),
-      )}
+      className={cn('text-action-sm trasition-colors hover:text-primary', linkClass())}
     >
       {children}
     </Link>
