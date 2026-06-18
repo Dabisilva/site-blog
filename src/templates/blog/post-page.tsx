@@ -7,12 +7,11 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Button } from '@/components/ui/button';
-import { useShare } from '@/hooks';
 import { dataFormat } from '@/utils/dataFormat';
 import { type Post as PostType } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PostShare } from './components/post-share';
 
 type PostPageProps = {
   post: PostType;
@@ -20,7 +19,6 @@ type PostPageProps = {
 
 export const Post = ({ post }: PostPageProps) => {
   const postLink = `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com'}/blog/${post?.slug}`;
-  const { shareButtons } = useShare({ url: postLink, title: post?.title, text: post?.description });
 
   if (!post) {
     return (
@@ -85,18 +83,7 @@ export const Post = ({ post }: PostPageProps) => {
             <div className="rounded-lg bg-gray-700">
               <h2 className="text-heading-sm mb-4 hidden text-gray-100 md:block">Share</h2>
               <div className="flex justify-between gap-2 md:flex-col">
-                {shareButtons.map((share) => (
-                  <Button
-                    key={share.provider}
-                    variant="outline"
-                    size="icon"
-                    className="w-fit cursor-pointer justify-start gap-2 px-4 md:w-full"
-                    onClick={() => share.action()}
-                  >
-                    {share.icon}
-                    <span className="hidden md:block">{share.name}</span>
-                  </Button>
-                ))}
+                <PostShare url={postLink} post={post} />
               </div>
             </div>
           </aside>
