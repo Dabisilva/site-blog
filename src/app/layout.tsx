@@ -1,10 +1,16 @@
 import { Layout } from '@/components/layout';
 import { ThemeProvider } from '@/components/theme-provider';
+import { siteConfig, siteUrl } from '@/lib/site-config';
 import '@/styles/globals.css';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Blog',
-  description: 'Blog Description',
+export const metadata: Metadata = {
+  metadataBase: siteUrl,
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
 };
 
 const themeScript = `

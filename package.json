@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "contentlayer build && next build",
+    "build": "node scripts/contentlayer-build.mjs && eslint . && tsc --noEmit && next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "eslint . && tsc --noEmit",
     "format": "npx prettier . --write",
     "blog": "pnpm contentlayer build"
   },

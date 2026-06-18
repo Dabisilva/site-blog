@@ -7,6 +7,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { siteConfig } from '@/lib/site-config';
 import { dataFormat } from '@/utils/dataFormat';
 import { type Post as PostType } from 'contentlayer/generated';
 import Image from 'next/image';
@@ -18,7 +19,7 @@ type PostPageProps = {
 };
 
 export const Post = ({ post }: PostPageProps) => {
-  const postLink = `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com'}/blog/${post?.slug}`;
+  const postLink = `${siteConfig.url}/blog/${post?.slug}`;
 
   if (!post) {
     return (
