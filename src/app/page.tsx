@@ -3,17 +3,17 @@ import { LandingPage } from '@/templates/landing-page/landing-page';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
+  title: 'Site.Set DS',
+  description: 'Sell your products as an affiliate in one place',
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: siteConfig.shortName,
-    description: siteConfig.description,
+    title: 'Site.Set DS',
+    description: 'Sell your products as an affiliate in one place',
     url: siteConfig.url,
-    siteName: siteConfig.name,
+    siteName: 'Site.Set DS',
     type: 'website',
     locale: siteConfig.locale,
     alternateLocale: [...siteConfig.alternateLocales],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 800,
         height: 600,
-        alt: siteConfig.name,
+        alt: 'Site.Set DS',
       },
     ],
   },
