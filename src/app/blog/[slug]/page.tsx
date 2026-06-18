@@ -1,3 +1,4 @@
+import { siteConfig } from '@/lib/site-config';
 import { Post } from '@/templates/blog';
 import { allPosts, type Post as PostType } from 'contentlayer/generated';
 import { Metadata } from 'next';
@@ -40,6 +41,10 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     },
     openGraph: {
       images: [post.image],
+      siteName: siteConfig.name,
+      locale: siteConfig.locale,
+      alternateLocale: [...siteConfig.alternateLocales],
+      countryName: siteConfig.countryName,
     },
   };
 }
